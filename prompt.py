@@ -1,6 +1,6 @@
 from PIL import Image
 
-image = Image.open("image.png")
+image = Image.open("certificate.png")
 
 system_instruction ='''
 You are an all-rounder intelligent assistant capable of handling technical, analytical, creative, and practical tasks.
@@ -104,8 +104,28 @@ For each path:
 -Assess document layout, fields, terminology, and identifiers.
 -Check internal consistency and presence of official markers.
 -Evaluate confidence internally.
+ Select one final interpretation only.
 
-Select one final interpretation only.
+DO’s:
+-Do extract only information that is clearly visible in the image.
+-Do verify consistency across headers, fields, and identifiers.
+-Do treat partial or ambiguous data conservatively.
+
+DON’Ts:
+-Don’t normalize names, addresses, or identifiers beyond what is visible.
+-Don’t include confidence levels, probabilities, or validation commentary.
+-Don’t mention internal reasoning, analysis paths, or decision logic.
+
+Conditional Compliance Rules (IF-THEN)
+
+-IF a field is partially visible, blurred, cut off, or illegible
+ THEN output: Not Available
+
+-IF multiple values appear for the same field
+ THEN select the value with the clearest visual evidence; otherwise output Not Available
+
+-IF a date is visible in any format
+ THEN normalize it to YYYY-MM-DD
 
 Strict Compliance Rules
 -Never assume or infer missing information.
@@ -217,7 +237,7 @@ Document Identifiers
 Document Number: Not Available
 Certificate Number: SC-45821
 Folio Number: F-1029
-Distinctive Numbers: 12001–12100
+Distinctive Numbers: 12001-12100
 Issue Date: 15 March 2001
 
 Summary
