@@ -24,7 +24,7 @@ def run_experiment(prompts : str|None):
 
     return response.text
 
-def consistency_prompt(prompt: str,image, runs: int = 4)-> list :
+def consistency_prompt(prompt: str, runs: int = 4)-> list :
     """
     Summary: This is useful for analyzing variability or consistency across multiple
         model runs.

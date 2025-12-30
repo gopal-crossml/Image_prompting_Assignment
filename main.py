@@ -9,14 +9,14 @@ def main():
     
 # Driver code
 if __name__ == "__main__":
-    main()
+    # prompt selection
+    prompt_selection = prompt5
 
-prompt_selection = prompt5
-
-
-if prompt_selection == consistency_prompt:
-    consistency_result = consistency_prompt(prompt5,image)
-    for lst in consistency_result:
-        print(f"-----output-----\n{lst}\n")
-else:
-    print(run_experiment,image)
+    # if prompt is consistency prompt
+    if prompt_selection == consistency_prompt:
+        consistency_result = consistency_prompt(prompt5)
+        for lst in consistency_result:
+            print(f"-----output-----\n{lst}\n")
+    else:
+    # for the generation of other prompts
+       main()
